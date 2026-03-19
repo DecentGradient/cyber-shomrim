@@ -7,26 +7,51 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-const {setGlobalOptions} = require("firebase-functions");
-const {onRequest} = require("firebase-functions/https");
+const { setGlobalOptions } = require("firebase-functions");
+const { onRequest } = require("firebase-functions/v2/https");
 const logger = require("firebase-functions/logger");
+const cors = require("cors")({ origin: true });
+const sgMail = require("@sendgrid/mail");
+const { defineSecret } = require("firebase-functions/params");
 
-// For cost control, you can set the maximum number of containers that can be
-// running at the same time. This helps mitigate the impact of unexpected
-// traffic spikes by instead downgrading performance. This limit is a
-// per-function limit. You can override the limit for each function using the
-// `maxInstances` option in the function's options, e.g.
-// `onRequest({ maxInstances: 5 }, (req, res) => { ... })`.
-// NOTE: setGlobalOptions does not apply to functions using the v1 API. V1
-// functions should each use functions.runWith({ maxInstances: 10 }) instead.
-// In the v1 API, each function can only serve one request per container, so
-// this will be the maximum concurrent request count.
 setGlobalOptions({ maxInstances: 10 });
 
-// Create and deploy your first functions
-// https://firebase.google.com/docs/functions/get-started
+const sendgridApiKey = defineSecret("SENDGRID_API_KEY");
 
-// exports.helloWorld = onRequest((request, response) => {
-//   logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+exports.sendSupportEmail = onRequest(
+  { secrets: [sendgridApiKey], cors: true },
+  (request, response) => {
+    cors(request, response, async () => {
+      try {
+        if (request.method !== "POST") {
+          response.status(405).send("Method Not Allowed");
+          return;
+        }
+
+        sgMail.setApiKey(sendgridApiKey.value().trim());
+        
+        const { name, email, phone, company, message } = request.body.data || request.body; // handle direct fetch or call
+
+        const msg = {
+          to: ['joseph@decentgradient.com', 'friedmanym@gmail.com'],
+          from: 'alerts@cybershomrim.org', // Must be an authenticated sender domain in SendGrid
+          subject: `New Support Request from ${name || 'Unknown'}`,
+          text: `
+Name: ${name || 'N/A'}
+Email: ${email || 'N/A'}
+Phone: ${phone || 'N/A'}
+Company: ${company || 'N/A'}
+Message: ${message || 'N/A'}
+          `,
+        };
+
+        await sgMail.send(msg);
+        response.status(200).json({ data: { success: true, message: "Email sent successfully" } }); 
+        // We wrap in data:{} in case the client uses standard Callable function format, but they can just use standard fetch.
+      } catch (error) {
+        logger.error("Error sending email", error.response ? error.response.body : error);
+        response.status(500).json({ data: { success: false, error: "Failed to send email" } });
+      }
+    });
+  }
+);

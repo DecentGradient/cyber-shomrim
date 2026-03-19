@@ -1,0 +1,49 @@
+<div class="modal-overlay" (click)="onClose()" data-testid="modal-overlay">
+  <div class="modal-content" (click)="$event.stopPropagation()" data-testid="contact-modal">
+    <button class="close-btn" (click)="onClose()" data-testid="close-modal-btn">&times;</button>
+    <h2>Contact Support</h2>
+
+    <div *ngIf="submitSuccess" class="success-message" data-testid="success-message">
+      <p>Thank you! Your message has been sent successfully. We will get back to you shortly.</p>
+      <button (click)="onClose()" class="primary-btn" data-testid="success-close-btn">Close</button>
+    </div>
+
+    <form *ngIf="!submitSuccess" [formGroup]="contactForm" (ngSubmit)="onSubmit()" data-testid="contact-form">
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input id="name" type="text" formControlName="name" data-testid="input-name" />
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input id="email" type="email" formControlName="email" data-testid="input-email" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" type="tel" formControlName="phone" data-testid="input-phone" />
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company</label>
+        <input id="company" type="text" formControlName="company" data-testid="input-company" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message *</label>
+        <textarea id="message" rows="4" formControlName="message" data-testid="input-message"></textarea>
+      </div>
+
+      <div *ngIf="submitError" class="error-message" data-testid="error-message">
+        Failed to send message. Please try again.
+      </div>
+
+      <div class="actions">
+        <button type="button" class="secondary-btn" (click)="onClose()" data-testid="cancel-btn">Cancel</button>
+        <button type="submit" class="primary-btn" [disabled]="isSubmitting" data-testid="submit-btn">
+          {{ isSubmitting ? 'Sending...' : 'Send Message' }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "kill-port 4000 4200 5000 5001 8080 9000 9099 9199 || true && concurrently \"ng serve\" \"firebase emulators:start\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -26,13 +26,17 @@
     "@angular-devkit/build-angular": "^18.2.0",
     "@angular/cli": "^18.2.0",
     "@angular/compiler-cli": "^18.2.0",
+    "@playwright/test": "^1.58.2",
     "@types/jasmine": "~5.1.0",
+    "@types/node": "^25.5.0",
+    "concurrently": "^9.2.1",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "kill-port": "^2.0.1",
     "typescript": "~5.5.2"
   }
 }
