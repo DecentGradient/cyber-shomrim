@@ -8,8 +8,8 @@ test('Contact form should open, validate, and submit', async ({ page }) => {
   // We'll use 4200 as standard for Angular apps unless defined otherwise in playwright.config.ts
   await page.goto('http://localhost:4200/');
 
-  // Click the Get Support Now button
-  await page.getByTestId('get-support-btn').click();
+  // Click the first Get Support Now button
+  await page.getByTestId('get-support-btn').first().click();
 
   // The modal should be visible
   const modal = page.getByTestId('contact-modal');
