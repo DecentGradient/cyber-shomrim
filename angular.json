@@ -27,7 +27,7 @@
             "assets": [
               {
                 "glob": "**/*",
-                "input": "dist/cyber-shomrim/browser"
+                "input": "public"
               }
             ],
             "styles": [
