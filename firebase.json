@@ -10,10 +10,6 @@
       {
         "source": "/api/sendSupportEmail",
         "function": "sendSupportEmail"
-      },
-      {
-        "source": "**",
-        "destination": "/index.html"
       }
     ]
   },
