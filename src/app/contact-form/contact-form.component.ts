@@ -21,11 +21,11 @@ export class ContactFormComponent {
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.contactForm = this.fb.group({
-      name: ['', Validators.required],
+      name: [''],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
+      phone: ['', Validators.required],
       company: [''],
-      message: ['', Validators.required]
+      message: ['']
     });
   }
 

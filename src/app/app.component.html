@@ -1,21 +1,182 @@
-<div class="hero">
-  <div class="overlay"></div>
-  <div class="content">
-    <h1>Cyber Shomrim</h1>
-    <p class="mission">
-      Defending Jewish businesses and organizations against targeted nation-state cyber attacks.
-    </p>
-    <div class="code-block">
-      <pre><code>
-> INIT DEFENSE PROTOCOLS...
-> SCANNING FOR THREATS...
-> THREAT DETECTED: NATION-STATE ACTOR
-> ENGAGING SHIELD...
-> NETWORK SECURE.
-      </code></pre>
-    </div>
-    <button class="cta" (click)="openSupportForm()" data-testid="get-support-btn">Get Support Now</button>
-  </div>
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
+<div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<img src="assets/logo.png" alt="Cyber Shomrim Logo" class="h-8 w-8 md:h-10 md:w-10 object-contain rounded-md" data-testid="app-logo">
+<span class="text-xl font-bold tracking-tighter uppercase">Cyber <span class="text-primary">Shomrim</span></span>
 </div>
+<div class="hidden md:flex gap-8 items-center text-sm font-medium uppercase tracking-widest">
+<!-- <a class="hover:text-primary transition-colors" href="#">Community Mission</a>
+<a class="hover:text-primary transition-colors" href="#">Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Resources</a> -->
+<button (click)="openSupportForm()" data-testid="get-support-btn" class="bg-primary text-white px-5 py-2 rounded font-bold glow-primary hover:bg-primary/90 transition-all">Support Center</button>
+</div>
+</div>
+</nav>
+
+<!-- Hero Section -->
+<div class="relative min-h-[795px] flex flex-col justify-center overflow-hidden border-b border-slate-800">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center relative z-10 py-20">
+<div class="flex flex-col gap-8">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest w-fit">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+Community Watch: Active
+</div>
+<div class="flex flex-col gap-4">
+<h1 class="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter uppercase italic">
+Cyber <br/><span class="text-primary underline decoration-primary/30">Shomrim</span>
+</h1>
+<p class="text-xl md:text-2xl text-slate-400 max-w-lg leading-relaxed font-light">
+A volunteer-led initiative defending Jewish businesses and community organizations against digital threats.
+</p>
+</div>
+<div class="flex flex-wrap gap-4">
+<button (click)="openSupportForm()" data-testid="get-support-btn" class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 bg-primary text-white text-lg font-bold tracking-widest uppercase glow-primary hover:translate-y-[-2px] transition-all">
+Request Assistance
+</button>
+<!-- <button class="flex min-w-[200px] cursor-pointer items-center justify-center rounded h-14 px-8 border border-slate-700 bg-transparent text-slate-300 text-lg font-bold tracking-widest uppercase hover:bg-white/5 transition-all">
+Volunteer Info
+</button> -->
+</div>
+</div>
+<!-- Terminal Visual -->
+<div class="relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-accent-green rounded-lg blur opacity-25 group-hover:opacity-50 transition duration-1000"></div>
+<div class="relative bg-card-dark border border-slate-700 rounded-lg overflow-hidden shadow-2xl">
+<div class="bg-slate-800/50 px-4 py-2 border-b border-slate-700 flex gap-1.5 items-center">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-accent-green/50"></div>
+<span class="ml-4 text-[10px] text-slate-500 uppercase tracking-widest font-mono">community_watch_v4.0.12</span>
+</div>
+<div class="p-6 font-mono text-sm md:text-base space-y-3 min-h-[300px]">
+<div class="text-slate-500 italic">// INITIALIZING COMMUNITY DEFENSE</div>
+<div class="flex gap-2"><span class="text-accent-green">&gt;</span><span class="text-slate-100">SYNCING VOLUNTEER NODES...</span></div>
+<div class="flex gap-2"><span class="text-accent-green">&gt;</span><span class="text-slate-100">PROTECTING ASSETS...</span></div>
+<div class="flex gap-2 items-center"><span class="text-accent-green">&gt;</span><span class="bg-accent-green/20 text-accent-green px-2 py-0.5 rounded text-xs font-bold">WATCH ACTIVE</span></div>
+<div class="pt-4 text-primary opacity-80">Monitoring communal digital infrastructure...</div>
+<div class="text-slate-400 text-xs">
+[####################] 100% SUCCESS <br/>
+NETWORK: GUARDED <br/>
+FIREWALL: OPTIMIZED <br/>
+VOLUNTEERS: STANDBY
+</div>
+<div class="animate-pulse inline-block w-2 h-5 bg-primary align-middle ml-1"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Stats Section -->
+<div class="bg-slate-900/50 border-y border-slate-800">
+<div class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 sm:grid-cols-3 gap-8 text-center md:text-left">
+<div class="flex flex-col">
+<span class="text-primary text-4xl font-black italic tracking-tighter">&lt; 5 MIN</span>
+<span class="text-slate-500 text-xs uppercase font-bold tracking-widest">Rapid Response</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-100 text-4xl font-black italic tracking-tighter">24/6</span>
+<span class="text-slate-500 text-xs uppercase font-bold tracking-widest">Sentry Watch</span>
+</div>
+<div class="flex flex-col">
+<span class="text-slate-100 text-4xl font-black italic tracking-tighter">99.9%</span>
+<span class="text-slate-500 text-xs uppercase font-bold tracking-widest">Operational Uptime</span>
+</div>
+</div>
+</div>
+
+<!-- Protection Features -->
+<section class="max-w-7xl mx-auto px-4 py-24">
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<h2 class="text-primary font-bold uppercase tracking-[0.3em] text-sm mb-4">Volunteer Capabilities</h2>
+<h3 class="text-4xl md:text-5xl font-black uppercase italic tracking-tighter">Community Protection Layer</h3>
+<p class="text-slate-400 mt-6 text-lg">Proactive defense provided by the community, for the community. We help secure your digital environment through collective expertise.</p>
+</div>
+<div class="h-1 w-24 bg-primary hidden md:block"></div>
+</div>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="group bg-card-dark border border-slate-800 p-8 rounded-xl hover:border-primary/50 transition-all">
+<div class="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"><span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">policy</span></div>
+<h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Threat Monitoring</h4>
+<p class="text-slate-500 leading-relaxed">Vigilant monitoring of emerging threats targeting community groups, providing early warnings and mitigation advice.</p>
+</div>
+<div class="group bg-card-dark border border-slate-800 p-8 rounded-xl hover:border-primary/50 transition-all">
+<div class="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"><span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">monitoring</span></div>
+<h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Security Audits</h4>
+<p class="text-slate-500 leading-relaxed">Complimentary vulnerability assessments for non-profits and small businesses to identify and patch security gaps.</p>
+</div>
+<div class="group bg-card-dark border border-slate-800 p-8 rounded-xl hover:border-primary/50 transition-all">
+<div class="w-14 h-14 rounded bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors"><span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">emergency_home</span></div>
+<h4 class="text-xl font-bold mb-3 uppercase tracking-tight">Incident Support</h4>
+<p class="text-slate-500 leading-relaxed">Dedicated volunteer experts ready to guide your organization through recovery if a security incident occurs.</p>
+</div>
+</div>
+</section>
+
+<!-- Global Map Visual (Mockup) -->
+<section class="bg-slate-900 border-y border-slate-800 py-20 relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<svg class="w-full h-full" viewbox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+<circle cx="200" cy="150" fill="#0d59f2" r="2"></circle>
+<circle cx="400" cy="200" fill="#0d59f2" r="2"></circle>
+<circle cx="600" cy="100" fill="#0d59f2" r="2"></circle>
+<path d="M200 150 L400 200 L600 100" fill="none" stroke="#0d59f2" stroke-width="1"></path>
+</svg>
+</div>
+<div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+<h2 class="text-3xl md:text-4xl font-black uppercase italic tracking-tighter mb-8">Secure Our Community Together</h2>
+<p class="text-slate-400 text-lg mb-10">Don't wait for a vulnerability to be exploited. Join our volunteer network or request support for your organization today.</p>
+<button (click)="openSupportForm()" data-testid="get-support-btn" class="bg-primary text-white h-16 px-12 rounded font-black tracking-[0.2em] uppercase glow-primary hover:scale-105 transition-all">
+Contact Volunteer Command
+</button>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-background-dark py-12 border-t border-slate-800">
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid md:grid-cols-4 gap-12 mb-12">
+<div class="col-span-1 md:col-span-2">
+<div class="flex items-center gap-2 mb-6">
+<img src="assets/logo.png" alt="Cyber Shomrim Logo" class="h-8 w-8 md:h-10 md:w-10 object-contain rounded-md" data-testid="app-logo-footer">
+<span class="text-xl font-bold tracking-tighter uppercase">Cyber <span class="text-primary">Shomrim</span></span>
+</div>
+<p class="text-slate-500 max-w-sm leading-relaxed">The ultimate guardian of the Jewish digital diaspora. A community-based effort specialized in protective digital advocacy.</p>
+</div>
+<div>
+<h5 class="font-bold uppercase tracking-widest text-xs mb-6 text-slate-100">Our Work</h5>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Community Shield</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Vulnerability Audit</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Best Practices</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold uppercase tracking-widest text-xs mb-6 text-slate-100">About Us</h5>
+<ul class="space-y-4 text-sm text-slate-500">
+<li><a class="hover:text-primary transition-colors" href="#">Our Mission</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Volunteer Sign-up</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-600">
+<p>© 2024 CYBER SHOMRIM. PROTECTING THE COMMUNITY.</p>
+<div class="flex gap-6">
+<a class="hover:text-slate-400 transition-colors" href="#">Twitter</a>
+<a class="hover:text-slate-400 transition-colors" href="#">Signal</a>
+<a class="hover:text-slate-400 transition-colors" href="#">Matrix</a>
+</div>
+</div>
+</div>
+</footer>
 
 <app-contact-form *ngIf="isSupportFormOpen" (close)="isSupportFormOpen = false"></app-contact-form>
