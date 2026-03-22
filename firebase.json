@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/cyber-shomrim/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
